@@ -1,0 +1,11 @@
+userid,name,email,password,emailverified,countryid,usertypeid,email_verified_at,remember_token,deleted_at,created_at,updated_at
+1,"Werner Gerber",wernergerber264@gmail.com,0,,,"2021-07-05 12:22:25",,,"2021-07-05 12:22:25"
+2,henkTest,henk7916@gmail.com,0,,,,,"2021-07-05 00:00:00","2021-07-05 12:42:03"
+3,"Henk Blaauw",henk7916+maela1@gmail.com,0,,2,"2021-07-06 06:48:40","2021-07-13 05:52:49","2021-07-06 06:47:12","2021-07-13 05:52:49"
+4,Henk,henk7916+maela2@gmail.com,0,,3,"2021-07-06 07:45:40","2021-07-13 05:52:36","2021-07-06 07:45:29","2021-07-13 05:52:36"
+5,"Henk Blaauw",henk7916+maela3@gmail.com,0,,4,"2021-07-07 09:16:58","2021-07-13 16:56:41","2021-07-07 08:45:17","2021-07-13 16:56:41"
+6,"Henk Blaauw",henk7916+maela4@gmail.com,0,,5,"2021-07-07 09:21:36",,"2021-07-07 09:17:40","2021-07-13 16:54:27"
+7,"Henk Blaauw",henk7916+maela5@gmail.com,0,,6,"2021-07-07 09:26:38",,"2021-07-07 09:22:22","2021-07-13 16:45:40"
+8,"Henk Blaauw",henk7916+maela6@gmail.com,0,,3,"2021-07-07 09:32:56",,"2021-07-07 09:27:04","2021-07-13 10:26:31"
+9,"Henk Blaauw",henk7916+maela7@gmail.com,0,,2,"2021-07-07 10:57:50",,"2021-07-07 10:57:13","2021-07-13 16:54:24"
+10,"Henk Blaauw",henk7916+maela9@gmail.com,0,,2,,,"2021-07-07 11:18:25","2021-07-13 16:45:29"

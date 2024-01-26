@@ -1,0 +1,12 @@
+
+[v-cloak] > *file { display:none; }
+
+[v-cloak]::before {
+  content: " ";
+  display: block;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
