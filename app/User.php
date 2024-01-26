@@ -62,15 +62,6 @@ class User extends Authenticatable implements MustVerifyEmail
             ->required("Enter a valid email address")
             ->pattern("Invalid email address", Utils::EMAIL_REGEX);
 
-        $fieldSet->dateTime('created_at', 'Created Date')
-            ->canAddEdit(false);
-
-        $fieldSet->dateTime('deleted_at', "Deactivated Date")
-            ->canAddEdit(false);
-
-        $fieldSet->text('employee_no', "Employee Number")
-            ->canAddEdit(True);
-
     }
 
     public function roles()

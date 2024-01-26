@@ -1,41 +1,15 @@
 @extends('layouts.authenticated')
 
-@section("pagetitle","Home")
+@section('pagetitle', 'Home')
 
 @section('content')
 
-        <v-container v-if="role === 1">
-            <div>
-                Welcome to BFS Admin Portal
-            </div>
-        </v-container>
-        <v-container v-if="role === 2">
-            <v-container>
-                <grid url="{{route('clients.reworked.data')}}" title="Client Rework list"></grid>
-            </v-container>
+    <v-container v-if="role === 1">
+        <div>
+            Welcome to BFS Admin Portal
+        </div>
+    </v-container>
 
-            <v-container>
-                <grid url="{{route('relatedparties.reworked.data')}}" title="Related Party Rework list"></grid>
-            </v-container>
-
-            <v-container>
-                <grid url="{{route('kycfiles.reworked.data')}}" title="Kyc Files Rework list"></grid>
-            </v-container>
-
-        </v-container>
-        <v-container v-if="role === 3">
-            <v-container>
-                <grid url="{{route('clients.pending.data')}}" title="Client Pending list"></grid>
-            </v-container>
-
-            <v-container>
-                <grid url="{{route('relatedparties.pending.data')}}" title="Related Party Pending list"></grid>
-            </v-container>
-
-            <v-container>
-                <grid url="{{route('kycfiles.pending.data')}}" title="Kyc Files Pending list"></grid>
-            </v-container>
-        </v-container>
 
 @endsection
 
@@ -45,9 +19,9 @@
             data() {
                 return {
                     creator: false,
-                    reviewer:false,
+                    reviewer: false,
                     superuser: false,
-                    role:null
+                    role: null
                 }
             },
             mounted() {
@@ -79,14 +53,15 @@
                 },
                 getRoles() {
                     this.loading = true;
-                    this.$http.get(`/users/` + this.$store.state.server.data.user.userid + `/roles`).then((response) => {
-                        this.loading = false;
-                        this.role = response.data[0];
-                        console.log(this.role);
-                    }, (error) => {
-                        console.log(error);
-                        this.loading = false
-                    });
+                    this.$http.get(`/users/` + this.$store.state.server.data.user.userid + `/roles`).then((
+                        response) => {
+                            this.loading = false;
+                            this.role = response.data[0];
+                            console.log(this.role);
+                        }, (error) => {
+                            console.log(error);
+                            this.loading = false
+                        });
                 },
                 // triggerDialog() {
                 //     this.$dialog("Delete Record", "Are you sure?", "primary", true, "warning", "35%", true, {
