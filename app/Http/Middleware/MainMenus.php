@@ -33,11 +33,6 @@ class MainMenus
             ->subMenu()
             ->route("Manage Clients", "clients.list", [], null, 'client_management');
 
-        MenuBuilder::menu("main")
-            ->group("Contact Management", "group")
-            ->subMenu()
-            ->route("Manage Contacts", "contacts.list", [], null, 'contact_management');
-
         MenuExpose::exposeMenus();
         return $next($request);
     }

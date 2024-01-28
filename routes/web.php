@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 //Auth::routes();
-Auth::routes(['verify' => true]);
+Auth::routes(['verify' => false]);
 Route::get('/', function () {
     return view('welcome');
 });
@@ -70,25 +70,10 @@ Route::group(["middleware" => ["auth", "state", "verified"]], function () {
 
             Route::get('/clients', 'ClientController@index')->name('clients.list');
             Route::post('/clients', 'ClientController@tableDataProvider')->name('clients.data');
-            Route::get('/clients/{client}/contacts', 'ContactController@index')->name('contacts.list');
-            Route::post('/clients/{client}/contacts', 'ContactController@tableDataProvider')->name('contacts.data');
+            Route::get('/clients/{client}/contact', 'ContactController@index')->name('contacts.list');
+            Route::post('/clients/{client}/contact', 'ContactController@tableDataProvider')->name('contacts.data');
 
         });
-        
-        Route::group(["middleware" => ["right:contacts_management"]], function () {
-
-            Route::get('/contact', 'ContactController@report')->name('contacts.list');
-            Route::post('/contact', 'ContactController@tableDataProvider')->name('contacts.data');
-            //  Route::get('/contact/{contact}/clients', 'ClientController@index')->name('clients.list');
-            // Route::post('/contact/{contact}/clients', 'ClientController@tableDataProvider')->name('clients.data');
-
-        });
-
-        Route::group(["middleware" => ["right:setting_management"]], function () {
-            Route::get('/settings', 'SettingController@index')->name('settings.list');
-            Route::post('/settings', 'SettingController@tableDataProvider')->name('settings.data');
-        });
-
        
     });
 });

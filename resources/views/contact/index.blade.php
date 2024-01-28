@@ -1,12 +1,15 @@
 @extends('layouts.authenticated')
 
-@section('pagetitle', 'Manage all Contacts')
+@section('pagetitle', $client->name . "'s Contacts")
 
 @section('content')
-    <grid url="{{ route('contacts.list') }}" title="Contact list" mode="addEdit"
+    <grid url="{{ route('contacts.list', [$client->clientid]) }}" title="Contacts List" mode="crud"
         :row-menu="rowMenu"@config=" catchGridConfig($event)">
         <template slot="main-menu">
-            < </template>
+            {{-- <v-btn flat @click="openInNewTab" :disabled="loading">
+                Extract Client's Related Party
+            </v-btn> --}}
+        </template>
     </grid>
 
 @endsection
@@ -26,15 +29,7 @@
             },
             computed: {
                 rowMenu() {
-                    return [{
-                            label: 'Manage Clients',
-                            icon: 'people',
-                            // closure: function(row, rowid) {
-                            //     document.location.href = `/contacts/${rowid}/clients`;
-                            // }.bind(this)
-                        },
 
-                    ]
                 }
             },
             methods: {

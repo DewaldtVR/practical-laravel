@@ -17,15 +17,17 @@ class CreateClientTable extends Migration
             $table->collation = 'utf8_general_ci';
             $table->charset = 'utf8';
             $table->increments('clientid');
+            $table->unsignedInteger('userid')->nullable();
             $table->string('name');
             $table->string('clientCode');
-            $table->string('contacts');
+            $table->string('contact')->nullable();
+            $table->integer('contacts_count')->default(0)->nullable();
             $table->timestamps();
-            $table->foreign('contactid', 'fk_contact_client_idx')
-                ->references('contactid')->on('contact')
+            $table->foreign('userid', 'fk_user_client_idx')
+                ->references('userid')->on('user')
                 ->onDelete('no action')
                 ->onUpdate('no action');
-        });
+            });
     }
 
     /**

@@ -6,7 +6,10 @@
     <grid url="{{ route('clients.list') }}" title="Client list" mode="addEdit"
         :row-menu="rowMenu"@config=" catchGridConfig($event)">
         <template slot="main-menu">
-            < </template>
+            {{-- <v-btn flat @click="openInNewTab" :disabled="loading">
+                Extract Clients
+            </v-btn> --}}
+        </template>
     </grid>
 
 @endsection
@@ -30,7 +33,7 @@
                             label: 'Manage Contacts',
                             icon: 'people',
                             closure: function(row, rowid) {
-                                document.location.href = `/clients/${rowid}/contacts`;
+                                document.location.href = `/clients/${rowid}/contact`;
                             }.bind(this)
                         },
 

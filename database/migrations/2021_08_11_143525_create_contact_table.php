@@ -14,14 +14,19 @@ class CreateContactTable extends Migration
     public function up()
     {
         Schema::create('contact', function (Blueprint $table) {
-            $table->increments('cotnactid');
+            $table->increments('contactid');
             $table->unsignedInteger('clientid')->nullable();
+            $table->unsignedInteger('userid')->nullable();
             $table->string('name');
             $table->string('surname');
             $table->string('email');
             $table->timestamps();
             $table->foreign('clientid', 'fk_client_rp_idx')
                 ->references('clientid')->on('client')
+                ->onDelete('no action')
+                ->onUpdate('no action');
+            $table->foreign('userid', 'fk_user_rp_idx')
+                ->references('userid')->on('user')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });
