@@ -79,8 +79,8 @@ Route::group(["middleware" => ["auth", "state", "verified"]], function () {
 
             Route::get('/contact', 'ContactController@report')->name('contacts.list');
             Route::post('/contact', 'ContactController@tableDataProvider')->name('contacts.data');
-             Route::get('/contact/{contact}/clients', 'ClientController@index')->name('clients.list');
-            Route::post('/contact/{contact}/clients', 'ClientController@tableDataProvider')->name('clients.data');
+            //  Route::get('/contact/{contact}/clients', 'ClientController@index')->name('clients.list');
+            // Route::post('/contact/{contact}/clients', 'ClientController@tableDataProvider')->name('clients.data');
 
         });
 

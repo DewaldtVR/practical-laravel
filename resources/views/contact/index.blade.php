@@ -29,9 +29,9 @@
                     return [{
                             label: 'Manage Clients',
                             icon: 'people',
-                            closure: function(row, rowid) {
-                                document.location.href = `/contacts/${rowid}/clients`;
-                            }.bind(this)
+                            // closure: function(row, rowid) {
+                            //     document.location.href = `/contacts/${rowid}/clients`;
+                            // }.bind(this)
                         },
 
                     ]
