@@ -24,13 +24,8 @@ class CreateUserrightTable extends Migration
         DB::table('userright')->insert(["rightname" => "Setup", "rightslug" => "setup"]);
         DB::table('userright')->insert(["rightname" => "Setting Management", "rightslug" => "setting_management"]);
         DB::table('userright')->insert(["rightname" => "User Management", "rightslug" => "user_management"]);
-        DB::table('userright')->insert(["rightname" => "KycFile Management", "rightslug" => "kyctype_management"]);
-        DB::table('userright')->insert(["rightname" => "Applcation Type Management", "rightslug" => "applicationtype_management"]);
         DB::table('userright')->insert(["rightname" => "Client Management", "rightslug" => "client_management"]);
-        DB::table('userright')->insert(["rightname" => "Client Verification Management", "rightslug" => "client_verify_management"]);
-        DB::table('userright')->insert(["rightname" => "Related Party Verification Management", "rightslug" => "relatedparty_verify_management"]);
-        DB::table('userright')->insert(["rightname" => "KYC File Verification Management", "rightslug" => "kycfile_verify_management"]);
-        DB::table('userright')->insert(["rightname" => "Application Verification Management", "rightslug" => "application_verify_management"]);
+        DB::table('userright')->insert(["rightname" => "Contact Management", "rightslug" => "contact_management"]);
     }
 
     /**

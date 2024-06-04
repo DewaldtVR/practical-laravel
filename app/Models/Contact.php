@@ -16,13 +16,18 @@ class Contact extends Model
     use ThunderModel;
     protected $fillable = ["name", "surname", "email"];
     public $descriptor = 'name';
-//    protected static function boot()
-//    {
-//        parent::boot();
-//        Contact::observe(ContactObserver::class);
-//    }
+
     public function modelMeta(FieldSet $fieldSet)
     {
+        $fieldSet->select("client", "Client")
+            ->canAddEdit(false)
+            ->canFilter(true);
+
+        $fieldSet->select("user", "Created By")
+            ->canAddEdit(false)
+            ->canListView(false)
+            ->canFilter(true);    
+
         $fieldSet->text("name", "Name")
             ->canFilter(true)
             ->required();
@@ -38,5 +43,13 @@ class Contact extends Model
             ->canFilter(true)
             ->canAddEdit(true);
 
+    }
+    public function client()
+    {
+        return $this->belongsTo(Client::class,"clientid");
+    }
+     public function user()
+    {
+        return $this->belongsTo(User::class,'userid');
     }
 }

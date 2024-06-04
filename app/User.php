@@ -14,14 +14,13 @@ use App\Notifications\UserCreated;
 use App\Observers\UserCreatedObserver;
 use App\Traits\ModelConvention;
 use App\Traits\ThunderModel;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
     use Notifiable, ModelConvention, ThunderModel, SoftDeletes;
 
@@ -61,15 +60,6 @@ class User extends Authenticatable implements MustVerifyEmail
             ->canFilter(true)
             ->required("Enter a valid email address")
             ->pattern("Invalid email address", Utils::EMAIL_REGEX);
-
-        $fieldSet->dateTime('created_at', 'Created Date')
-            ->canAddEdit(false);
-
-        $fieldSet->dateTime('deleted_at', "Deactivated Date")
-            ->canAddEdit(false);
-
-        $fieldSet->text('employee_no', "Employee Number")
-            ->canAddEdit(True);
 
     }
 

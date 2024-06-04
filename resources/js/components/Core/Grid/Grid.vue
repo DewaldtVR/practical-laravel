@@ -228,7 +228,7 @@ export default {
           }
         });
         menu.push({
-          label: 'Delete', icon: 'delete', closure: this.deleteRecord
+          label: 'Unlink', icon: 'delete', closure: this.deleteRecord
         });
       }
 
@@ -252,7 +252,7 @@ export default {
 
       if (this.mode === 'delete') {
         menu.push({
-          label: 'Delete', icon: 'delete', closure: this.deleteRecord
+          label: 'Unlink', icon: 'delete', closure: this.deleteRecord
         });
       }
 

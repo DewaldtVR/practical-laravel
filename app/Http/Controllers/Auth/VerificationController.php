@@ -38,16 +38,10 @@ class VerificationController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('signed')->only('verify');
-        $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
 
     /**
      * Sends user verification link
      */
-    public function sendResetLink(): JsonResponse
-    {
-        Auth::user()->sendEmailVerificationNotification();
-        return response()->json(["message" => "Email sent"]);
-    }
+   
 }

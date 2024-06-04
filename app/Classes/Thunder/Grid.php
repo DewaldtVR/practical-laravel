@@ -336,5 +336,12 @@ class Grid
             return $this->handleUploads($request);
         }
     }
+    public function withCountRelation($relationName)
+    {
+        $this->queryDefinition->setQuery(
+            $this->queryDefinition->getQuery()->withCount($relationName)
+        );
 
+        return $this;
+    }
 }
