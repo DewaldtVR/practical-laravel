@@ -1,0 +1,25 @@
+version: "3.1"
+services:
+  # Nginx Service
+  webserver:
+    volumes:
+      - ./docker/nginx/conf.d.prod/:/etc/nginx/conf.d/
+    environment:
+      VIRTUAL_HOST: www.fashiontouri.com,fashiontouri.com
+      LETSENCRYPT_HOST: www.fashiontouri.com,fashiontouri.com
+      LETSENCRYPT_EMAIL: tech@rechnerherz.at
+
+  # DB Service
+  mariadb:
+    environment:
+      MYSQL_LOG_CONSOLE: 1
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: practical
+      MYSQL_USER: homestead
+      MYSQL_PASSWORD: secret
+
+# External Network
+networks:
+  default:
+    external:
+      name: webproxy

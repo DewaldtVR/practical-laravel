@@ -1,0 +1,41 @@
+version: "3.1"
+services:
+  # Nginx Service
+  webserver:
+    image: nginx:alpine
+    depends_on:
+      - app
+    container_name: practical-webserver
+    volumes:
+      - .:/var/www
+
+  redis:
+    image: redis:alpine
+    container_name: practical-redis
+
+  # DB Service
+  mariadb:
+    image: mariadb:10.4
+    container_name: practical-mariadb
+    volumes:
+      - dbdata:/var/lib/mysql/
+
+  # APP Service
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - redis
+      - mariadb
+    container_name: practical-app
+    image: practical-app
+    working_dir: /var/www/
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www
+
+#Volumes
+volumes:
+  dbdata:
+    driver: local

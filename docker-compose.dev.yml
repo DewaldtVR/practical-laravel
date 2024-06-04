@@ -1,0 +1,29 @@
+version: "3.1"
+services:
+  # Nginx Service
+  webserver:
+    volumes:
+      - ./docker/nginx/conf.d.dev/:/etc/nginx/conf.d/
+    ports:
+      - "8000:80"
+
+  # DB Service
+  mariadb:
+    image: mariadb:10.6
+    container_name: practical-mariadb
+    volumes:
+      - dbdata:/var/lib/mysql/
+    ports:
+      - "8006:3306"
+    environment:
+      MYSQL_LOG_CONSOLE: 1
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: practical
+      MYSQL_USER: homestead
+      MYSQL_PASSWORD: secret
+
+  # APP Service
+  app:
+    build:
+      args:
+        APP_UID: 1000
